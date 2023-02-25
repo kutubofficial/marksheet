@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Marksheet</title>
+    </head>
+        <style>
+body{
+    margin: 30px 60px 0px 60px;
+  }
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=button] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=button]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #c3bdbd;
+  padding: 60px;
+  margin-bottom: 15px;
+}
+.about{
+    text-align: center;
+}
+        </style>
+<body>
+    <h1>Student info..</h1>
+    <div>
+        <form action="">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" class="firstname" placeholder="Your fist name..">
+      
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" class="lastname" placeholder="your last name..">
+
+          <label for="roll">Roll Number</label>
+          <input type="text" id="roll" class="rollnum" placeholder="your Roll number..">
+      
+          <label for="state">state</label>
+          <select id="state" name="state">
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Bengaluru">Bengaluru</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Gujrat">Gujrat</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+          </select>
+        </form>
+      </div>
+      <h1>Enter Your Subject Mark's :</h1>
+    <form name="form1" id="form">
+        <div id="subject">
+        <label for="hindi">HINDI</label>
+          <input type="text" id="hindi"  placeholder="your mark's..">
+        <label for="english">ENGLISH</label>
+          <input type="text" id="english"  placeholder="your mark's..">
+        <label for="mathematics">MATHEMATICS</label>
+          <input type="text" id="mathematics"  placeholder="your mark's..">
+        <label for="science">SCIENCE</label>
+          <input type="text" id="science"  placeholder="your mark's..">
+        <label for="socal">SOCAL SCIENCE</label>
+          <input type="text" id="socal"  placeholder="your mark's..">
+        <label for="computer">COMPUTER SCIENCE</label>
+          <input type="text" id="computer"  placeholder="your mark's..">
+          <input type="button" onclick="marksheet();" value="Submit">
+        </div>
+        <h1>Result :</h1>
+        <div>
+     <table>
+    <tr>
+       <td> Name:</td><td><p id="fname1 lname1"></p></td>
+    </tr>
+    <tr>
+       <td> Roll Number:</td><td><p id="roll1"></p></td>
+    </tr>
+    <tr>
+       <td> State:</td><td><p id="state1"></p></td>
+    </tr> 
+    <tr>
+       <td> Hindi:</td><td><p id="hindi1"></p></td>
+    </tr>
+    <tr>
+       <td> English:</td><td><p id="english1"></p></td>
+    </tr>
+    <tr>
+       <td> Mathematics:</td><td><p id="math1"></p></td
+    </tr>
+    <tr>
+       <td> Science:</td><td><p id="science1"></p></td>
+    </tr>
+    <tr>
+       <td> Socal Science:</td><td><p id="socal1"></p></td>
+    </tr>
+    <tr>
+       <td> Computer Science:</td><td><p id="computer1"></p></td>
+    </tr>
+    <tr>
+       <td> Total:</td><td><p id="total"></p></td>
+    </tr>
+    <tr>
+       <td> Percentage:</td><td><p id="percentage"></p></td>
+    </tr>
+    <tr>
+       <td> Divison:</td><td><p id="divison"></p></td> 
+    </tr>
+    </table> 
+        </div>
+    </form>
+<script>
+function marksheet(){
+    let hindi = document.getElementById("hindi").value;
+    let english = document.getElementById("english").value;
+    let math = document.getElementById("mathematics").value;
+    let science = document.getElementById("science").value;
+    let socal = document.getElementById("socal").value;
+    let computer = document.getElementById("computer").value;
+
+//    let fname = document.getElementsByClassName('firstname').value;
+//    let lname = document.getElementsByClassName('lastname').value;
+//    let roll = document.getElementsByClassName('rollnum').value;
+//    let state = document.getElementsByClassName('state').value;
+//     document.getElementById('fname1').innerHTML= fname;
+//     document.getElementById('lname1').innerHTML= lname;
+//     document.getElementById('roll1').innerHTML = roll;
+//     document.getElementById('state').innerHTML = state;
+    
+    document.getElementById('hindi1').innerHTML = hindi;
+    document.getElementById('english1').innerHTML = english;
+    document.getElementById('math1').innerHTML= math;
+    document.getElementById('science1').innerHTML = science;
+    document.getElementById('socal1').innerHTML= socal;
+    document.getElementById('computer1').innerHTML= computer;
+    
+    //total subject mark's......
+    let sum = parseInt(hindi)+parseInt(english)+parseInt(math)+parseInt(science)+parseInt(socal)+parseInt(computer);
+    document.getElementById("total").innerHTML=sum;
+    //percentage......
+    let per = sum/6;
+    document.getElementById("percentage").innerHTML = per;
+    
+    //divison...
+
+    if(per> 60){
+        document.getElementById("divison").innerHTML = 'First';
+    }else if(per>45 && per<60){
+        document.getElementById("divison").innerHTML = 'Second';
+    } else if(per>33 && per<45){
+        document.getElementById("divison").innerHTML = 'Third';
+    }else{
+        document.getElementById("divison").innerHTML = 'Fail';
+    }
+}
+</script>
+</body>
+</html>
